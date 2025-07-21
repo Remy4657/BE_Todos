@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const cors = require("cors"); // Import thư viện CORS
 const listRoutes = require("./routes/listRoutes");
 
 const app = express();
@@ -8,6 +9,9 @@ const port = 3000;
 
 // Body Parser Middleware
 app.use(bodyParser.json());
+
+// Cấu hình CORS - Cho phép tất cả các nguồn
+app.use(cors()); // Nếu bạn muốn cho phép tất cả các nguồn truy cập API
 
 // Kết nối với MongoDB
 mongoose

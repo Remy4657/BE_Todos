@@ -12,8 +12,8 @@ exports.getTodos = async (req, res) => {
 
 // Thêm một todo item
 exports.createTodo = async (req, res) => {
-  const { name, isChecked } = req.body;
-  const newTodo = new List({ name, isChecked });
+  const { title, isDone } = req.body;
+  const newTodo = new List({ title, isDone });
 
   try {
     await newTodo.save();
@@ -26,12 +26,12 @@ exports.createTodo = async (req, res) => {
 // Sửa một todo item
 exports.updateTodo = async (req, res) => {
   const { id } = req.params;
-  const { name, isChecked } = req.body;
+  const { title, isDone } = req.body;
 
   try {
     const todo = await List.findByIdAndUpdate(
       id,
-      { name, isChecked },
+      { title, isDone },
       { new: true }
     );
     if (!todo) {
