@@ -3,7 +3,7 @@ const List = require("../models/list");
 // Lấy tất cả todo items
 exports.getTodos = async (req, res) => {
   try {
-    const todos = await List.find();
+    const todos = await List.find().sort({ createdAt: -1 });
     res.json(todos);
   } catch (error) {
     res.status(500).send(error);
