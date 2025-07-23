@@ -10,6 +10,10 @@ const ListSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    id_temp: {
+      type: String,
+      default: null,
+    },
   },
   { timestamps: true }
 );
